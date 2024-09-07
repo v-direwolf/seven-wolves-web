@@ -1,0 +1,124 @@
+<template>
+  <div class="media-page">
+    <video src="../assets/video.mp4" ref="videoPlayer" class="video-js" :id="playerId"></video>
+      <!-- <div class="play-button" @click="handleplay" v-show="isPlay">
+      </div>
+      <div class="pause-button" @click="handlepause" v-show="!isPlay">
+        <div></div>
+        <div></div>
+      </div> -->
+
+  </div>
+</template>
+
+<script>
+import videojs from "video.js";
+
+export default {
+  data() {
+   return {
+    isPlay: true,
+    player: null,
+    options: {
+      autoplay: true,
+      controls: true,
+      sources: [
+        {
+          src:
+            '../assets/video.mp4',
+            type: 'video/mp4'
+        }
+      ]
+    }
+   }
+
+  },
+  mounted() {
+    // this.$refs.videoPlayer.addEventListener('play', this.handleplay());
+    // this.$refs.videoPlayer.addEventListener('pause', this.handlepause());
+    this.player = videojs(this.$refs.videoPlayer, this.options, () => {
+      this.player.log('onPlayerReady', this);
+    });
+  },
+  methods: {
+    // handleplay() {
+    //   this.$refs.videoPlayer.play();
+    //   this.isPlay = false
+    // },
+    // handlepause() {
+    //   this.$refs.videoPlayer.pause();
+    //   this.isPlay = true
+    // }
+  }
+};
+</script>
+
+<style scoped>
+.media-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+  position: relative;
+  background: red;
+}
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+}
+.play-button {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: calc((100% - 80px) / 2);
+  left: calc((100% - 80px) / 2);
+  border: 4px solid #fff;
+  border-radius: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.play-button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 0 15px 25px;
+  border-color: transparent transparent transparent white;
+}
+.pause-button {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: calc((100% - 80px) / 2);
+  left: calc((100% - 80px) / 2);
+  border: 4px solid #fff;
+  border-radius: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0;
+  transition:  all 0.4s;
+}
+
+.media-page:hover .pause-button {
+  opacity: 0.85;
+}
+.pause-button div  {
+  width: 4px;
+  height: 40px;
+  background: #fff;
+  border-radius: 4px;
+}
+</style>
