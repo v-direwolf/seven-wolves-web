@@ -53,7 +53,7 @@
       src="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/video-bg.mp4">
     </video>
     <div class="overlay"></div>
-
+    <div class="play-btn" ref="playRef" :click="playBtn"></div>
   </div>
 </template>
 
@@ -74,15 +74,18 @@ export default {
   },
   watch: {
     isPlay(newValue) {
-      if (newValue && this.$refs.mediaRef) {
-        this.$refs.mediaRef.play();
-      } else {
-        // video.pause();
+      if (newValue) {
+        this.$refs.playRef.click();
       }
     }
   },
   beforeUnmount() {
    clearTimeout(this.timer);
+  },
+  methods: {
+    playBtn() {
+      this.$refs.mediaRef.play();
+    }
   }
 };
 </script>
@@ -182,6 +185,11 @@ p {
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+
+.play-btn {
+  position: absolute;
+  opacity: 0;
 }
 
 </style>
