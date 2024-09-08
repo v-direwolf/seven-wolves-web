@@ -2,6 +2,7 @@
   <div class="media-page">
     <video
       src="../assets/video.mp4"
+      poster="../assets/poster.jpg"
       ref="videoPlayer"
       class="video-js"
       x5-video-player-fullscreen="false"
