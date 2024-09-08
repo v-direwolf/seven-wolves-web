@@ -9,7 +9,7 @@
     @slideChange="onSlideChange"
   >
     <swiper-slide><Start /></swiper-slide>
-    <swiper-slide><MediaPlay /></swiper-slide>
+    <swiper-slide><MediaPlay :isActiveMedia="isActiveMedia"/></swiper-slide>
     <swiper-slide><Introduction :isPlay="isPlay"/></swiper-slide>
     <swiper-slide><End /></swiper-slide>
 
@@ -37,18 +37,24 @@ export default {
   },
   setup() {
     const isPlay = ref(false);
+    const isActiveMedia = ref(false);
 
-    const onSwiper = (swiper) => {
-      console.log('swiperswiper', swiper);
+    const onSwiper = () => {
+      // console.log('swiperswiper', swiper);
     };
     const onSlideChange = (e) => {
       isPlay.value = false;
+      isActiveMedia.value = false;
       if (e.activeIndex === 2) {
         isPlay.value = true;
+      }
+      if (e.activeIndex === 1) {
+        isActiveMedia.value = true;
       }
     };
     return {
       isPlay,
+      isActiveMedia,
       onSwiper,
       onSlideChange,
     };

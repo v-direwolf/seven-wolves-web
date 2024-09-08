@@ -1,12 +1,22 @@
 <template>
   <div class="media-page">
-    <video src="../assets/video.mp4" ref="videoPlayer" class="video-js"></video>
-      <div class="play-button" @click="handleplay" v-show="isPlay">
-      </div>
-      <div class="pause-button" @click="handlepause" v-show="!isPlay">
-        <div></div>
-        <div></div>
-      </div>
+    <video
+      src="../assets/video.mp4"
+      ref="videoPlayer"
+      class="video-js"
+      x5-video-player-fullscreen="false"
+      x5-playsinline="true"
+      playsinline="true"
+      webkit-playsinline="true"
+      preload="none"
+    >
+    </video>
+    <div class="play-button" @click="handleplay" v-show="isPlay">
+    </div>
+    <div class="pause-button" @click="handlepause" v-show="!isPlay">
+      <div></div>
+      <div></div>
+    </div>
 
   </div>
 </template>
@@ -15,19 +25,16 @@
 // import videojs from "video.js";
 
 export default {
+  props: {
+    isActiveMedia: {
+      type: Boolean,
+      default: false,
+    }
+  },
   data() {
    return {
     isPlay: true,
     player: null,
-    options: {
-      autoplay: true,
-      controls: true,
-      sources: [
-        {
-            type: 'video/mp4'
-        }
-      ]
-    }
    }
 
   },
@@ -38,14 +45,21 @@ export default {
     //   this.player.log('onPlayerReady', this);
     // });
   },
+  watch: {
+    isActiveMedia(newValue) {
+      if (!newValue && !this.isPlay) {
+        this.handlepause();
+      }
+    }
+  },
   methods: {
     handleplay() {
-      // this.$refs.videoPlayer.play();
-      // this.isPlay = false
+      this.$refs.videoPlayer.play();
+      this.isPlay = false
     },
     handlepause() {
-      // this.$refs.videoPlayer.pause();
-      // this.isPlay = true
+      this.$refs.videoPlayer.pause();
+      this.isPlay = true
     }
   }
 };
