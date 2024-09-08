@@ -52,7 +52,7 @@
       webkit-playsinline="true"
       preload="none"
       muted="true"
-      src="../assets/video-bg.mp4">
+      src="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/video-bg.mp4">
     </video>
     <div class="overlay"></div>
 
@@ -135,7 +135,7 @@ export default {
 .arrow-icon {
   width: 100px;
   height: 30px;
-  background-image: url(../assets/arrow.jpg);
+  background-image: url('https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/arrow.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   animation: arrow-ani .8s infinite linear;

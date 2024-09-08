@@ -1,6 +1,6 @@
 <template>
   <div class="end-page">
-    <img src="../assets/white-logo.png" class="white-logo"/>
+    <img src="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/white-logo.png" class="white-logo"/>
     <div class="end-page__content">
       <p class="content-text">追溯传奇 续写新章</p>
       <p class="content-text">谨献夹克灵感步履商旅新境</p>
@@ -30,7 +30,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .end-page {
-  background-image: url('../assets/end-bg.png');
+  background-image: url('https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/end-bg.png');
   background-size: 100% 100vh;
   background-repeat: no-repeat;
   width: 100%;
