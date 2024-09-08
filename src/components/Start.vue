@@ -75,7 +75,7 @@ export default {
   font-weight: 700;
 }
 .unit {
-  font-weight: 400;
+  font-weight: 700;
 }
 .start-page_time {
   font-size: 28px;
