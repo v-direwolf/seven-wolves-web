@@ -50,7 +50,6 @@
       webkit-playsinline="true"
       src="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/video-bg.mp4">
     </video>
-    <div class="overlay"></div>
   </div>
 </template>
 
@@ -105,7 +104,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  color: #bcb095;
+  color: #BCAC90;
   box-sizing: border-box;
   padding: 60px 10px 70px 10px;
 }
@@ -128,16 +127,6 @@ export default {
   left: 0;
   z-index: 1;
 }
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  background: black;
-  opacity: 0.65;
-}
 
 .arrow-icon {
   width: 100px;
@@ -159,11 +148,13 @@ export default {
 .introduction-page__inner,
 .arrow-icon {
   position: relative;
-  z-index: 100;
+  z-index: 30;
 }
+
 p {
   margin: 0;
 }
+
 .title-text.title {
   font-size: 24px;
   line-height: 24px;
