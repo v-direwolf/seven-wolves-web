@@ -48,12 +48,9 @@
       x5-playsinline="true"
       playsinline="true"
       webkit-playsinline="true"
-      preload="none"
-      muted="true"
       src="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/video-bg.mp4">
     </video>
     <div class="overlay"></div>
-    <div class="play-btn" ref="playRef" :click="playBtn"></div>
   </div>
 </template>
 
@@ -73,18 +70,28 @@ export default {
     }
   },
   watch: {
-    isPlay(newValue) {
-      if (newValue) {
-        this.$refs.playRef.click();
-      }
-    }
   },
   beforeUnmount() {
    clearTimeout(this.timer);
   },
   methods: {
-    playBtn() {
-      this.$refs.mediaRef.play();
+    mediaPlay () { // 根据需要play,audio和video一般不会同时播放
+      const video = document.getElementById('video-id')
+      video.addEventListener('ended', this.videoEnd) // 视频播放结束之后进行后续操作
+      video.volumn = 0.5
+      WeixinJSBridge.invoke('getNetworkType', {}, function () {
+        video.play()
+      })
+    }
+  },
+  mounted() {
+    const vm = this;
+    if (window.WeixinJSBridge) {
+      vm.mediaPlay();
+    } else {
+      document.addEventListener('WeixinJSBridgeReady', function(){
+        vm.mediaPlay();
+      }, false)
     }
   }
 };

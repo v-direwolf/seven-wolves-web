@@ -45,9 +45,6 @@ export default {
     const onSlideChange = (e) => {
       isPlay.value = false;
       isActiveMedia.value = false;
-      if (e.activeIndex === 2) {
-        isPlay.value = true;
-      }
       if (e.activeIndex === 1) {
         isActiveMedia.value = true;
       }
