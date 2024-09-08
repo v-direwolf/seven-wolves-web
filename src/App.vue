@@ -10,7 +10,10 @@
   >
     <swiper-slide><Start /></swiper-slide>
     <swiper-slide><MediaPlay :isActiveMedia="isActiveMedia"/></swiper-slide>
-    <swiper-slide><Introduction :isPlay="isPlay"/></swiper-slide>
+    <swiper-slide>
+      <!-- <Introduction :isPlay="isPlay" v-if="!isWechat"/> -->
+      <IntroductionWechat :isPlay="isPlay" v-if="isWechat"/>
+    </swiper-slide>
     <swiper-slide><End /></swiper-slide>
 
   </swiper>
@@ -24,6 +27,7 @@ import 'swiper/css/pagination';
 import Start from './components/Start.vue';
 import End from './components/End.vue';
 import Introduction from './components/Introduction.vue';
+import IntroductionWechat from './components/IntroductionWechat.vue';
 import MediaPlay from './components/MediaPlay.vue';
 
 export default {
@@ -34,10 +38,12 @@ export default {
     End,
     Introduction,
     MediaPlay,
+    IntroductionWechat,
   },
   setup() {
     const isPlay = ref(false);
     const isActiveMedia = ref(false);
+    const isWechat = ref(false);
 
     const onSwiper = () => {
       // console.log('swiperswiper', swiper);
@@ -48,10 +54,21 @@ export default {
       if (e.activeIndex === 1) {
         isActiveMedia.value = true;
       }
+      if (e.activeIndex === 2) {
+        isPlay.value = true;
+      }
     };
+    const handleIsWechat = () => {
+      const ua = navigator.userAgent.toLowerCase();
+      if (ua.match(/micromessenger/i) == 'micromessenger') {
+        isWechat.value = true;
+      }
+    }
+    handleIsWechat();
     return {
       isPlay,
       isActiveMedia,
+      isWechat,
       onSwiper,
       onSlideChange,
     };

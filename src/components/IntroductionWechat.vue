@@ -6,6 +6,10 @@
       class="media-video"
       id="video-id"
       ref="mediaRef"
+      x5-video-player-fullscreen="false"
+      x5-playsinline="true"
+      playsinline="true"
+      webkit-playsinline="true"
       src="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/video-bg.mp4">
     </video>
   </div>
@@ -21,18 +25,25 @@ export default {
       default: false
     }
   },
-  components:{
+  components: {
     IntroductionContent,
   },
   data() {
     return {
+      isWechat: false
     }
   },
   watch: {
     isPlay(newValue) {
       if (newValue) {
-        const video = document.getElementById('video-id');
-        video.play();
+        const vm = this;
+    if (window.WeixinJSBridge) {
+      vm.mediaPlay();
+    } else {
+      document.addEventListener('WeixinJSBridgeReady', function(){
+        vm.mediaPlay();
+      }, false)
+    }
       }
     }
   },
@@ -43,8 +54,18 @@ export default {
       WeixinJSBridge.invoke('getNetworkType', {}, function () {
         video.play()
       })
-    },
+    }
   },
+  mounted() {
+    const vm = this;
+    if (window.WeixinJSBridge) {
+      vm.mediaPlay();
+    } else {
+      document.addEventListener('WeixinJSBridgeReady', function(){
+        vm.mediaPlay();
+      }, false)
+    }
+  }
 };
 </script>
 
