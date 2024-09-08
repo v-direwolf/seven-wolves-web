@@ -1,28 +1,29 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <swiper
     :direction="'vertical'"
     :pagination="{
       clickable: true,
     }"
     class="mySwiper"
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
   >
     <swiper-slide><Start /></swiper-slide>
     <swiper-slide><MediaPlay /></swiper-slide>
-
+    <swiper-slide><Introduction :isPlay="isPlay"/></swiper-slide>
     <swiper-slide><End /></swiper-slide>
-    <!-- <swiper-slide><Introduction /></swiper-slide> -->
 
   </swiper>
 </template>
 
 <script>
+import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Start from './components/Start.vue';
 import End from './components/End.vue';
-// import Introduction from './components/Introduction.vue';
+import Introduction from './components/Introduction.vue';
 import MediaPlay from './components/MediaPlay.vue';
 
 export default {
@@ -31,11 +32,25 @@ export default {
     SwiperSlide,
     Start,
     End,
-    // Introduction,
+    Introduction,
     MediaPlay,
   },
   setup() {
+    const isPlay = ref(false);
+
+    const onSwiper = (swiper) => {
+      console.log('swiperswiper', swiper);
+    };
+    const onSlideChange = (e) => {
+      isPlay.value = false;
+      if (e.activeIndex === 2) {
+        isPlay.value = true;
+      }
+    };
     return {
+      isPlay,
+      onSwiper,
+      onSlideChange,
     };
   },
 };

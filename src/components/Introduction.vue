@@ -1,78 +1,185 @@
 <template>
   <div class="introduction-page">
-    <!-- <div class="introduction-page__bg"></div> -->
-    <!-- <div class="end-page__content">
-      <p class="content-text">追溯传奇 续写新章</p>
-      <p class="content-text">谨献夹克灵感步履商旅新境</p>
-      <p class="content-text">与七匹狼一起共赴奇幻之旅</p>
+    <div class="introduction-page__title">
+      <p class="title-text title">【新商旅 行世界】</p>
+      <p class="title-text desc">【New Business Travel  Explore The World】</p>
     </div>
-    <div class="end-page__footer">
-      <div class="end-page__footer-info">
-        <span class="label">北京</span>
-        <span class="value">19:30</span>
+    <div>
+      <div class="intro-text">
+        <p>亲历古港海贸的繁盛，作为海上丝绸之路起点的泉州，</p>
+        <p>同样也是七匹狼的故乡，承载着对历史的追思，</p>
+        <p>七匹狼从泉州来到米兰，横跨7000公里，重走千年时光。</p>
+        <p>我们以这段旅程为灵感，向世界展示东方美学技艺，续写传奇之旅。</p>
       </div>
-      <div class="end-page__footer-info">
-        <span class="label">米兰</span>
-        <span class="value">13:30</span>
+      <div class="intro-text-en">
+        <p>Having experienced the prosperity of ancient port maritime trade, Quanzhou,</p>
+        <p>as the starting point of the Maritime Silk Road, is also the hometown of SEPTWOLVES </p>
+        <p>SEPTWOLVES came from Quanzhou to Milan,</p>
+        <p>spanning 7,000 kilometers and retracing a thousand years of history.</p>
+        <p>Drawing inspiration from this journey,</p>
+        <p>we showcase the artistry of Eastern aesthetics to the world.</p>
       </div>
-    </div> -->
+    </div>
+    <div>
+      <div class="intro-text">
+        <p>全新七匹狼商旅夹克，以象征泉州的刺桐花和珠绣为灵感，</p>
+        <p>融入现代科技，兼容时尚、舒适与气候应对，</p>
+        <p>重构夹克新貌，定义商旅新范式。</p>
+        <p>行走世界，穿七匹狼夹克，每一程都尽显风采。</p>
+      </div>
+      <div class="intro-text-en">
+        <p>The brand-new SEPTWOLVES business travel jacket, </p>
+        <p>inspired by the Erythrina flowers and bead embroidery that symbolize Quanzhou,</p>
+        <p> integrates modern technology Integrating fashion, comfort,</p>
+        <p>and climate adaptability, we reinvent the jacket's appearance,</p>
+        <p>establishing a new norm for business travel. Exploring the world with SEPTWOLVES jacket,</p>
+        <p>exudes charm and elegance in every journey.</p>
+      </div>
+    </div>
+    <!-- x5-video-player-type="h5" x-webkit-airplay="true" webkit-playsinline="true" playsinline="" poster="" preload="none" autoplay="" loop="" -->
+    <video
 
+      class="media-video"
+      id="video-id"
+      ref="mediaRef"
+      x5-video-player-fullscreen="false"
+      x5-playsinline="true"
+      playsinline="true"
+      webkit-playsinline="true"
+      preload="none"
+      muted="true"
+      src="../assets/video-bg.mp4">
+    </video>
+      <div class="overlay"></div>
+    <div class="arrow-icon"></div>
 
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'IntroductionPage',
-}
+  props: {
+    isPlay: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {
+      timer: null
+    }
+  },
+  watch: {
+    isPlay(newValue) {
+      console.log('newvalue', newValue);
+      // var video = document.getElementById('video-id');
+      if (newValue && this.$refs.mediaRef) {
+        this.$refs.mediaRef.play();
+      } else {
+        // video.pause();
+      }
+    }
+  },
+  beforeUnmount() {
+   clearTimeout(this.timer);
+  }
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .introduction-page {
-
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: relative;
-  /* display: flex;
+  display: flex;
   flex-direction: column;
+  gap: 60px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   color: #bcb095;
   box-sizing: border-box;
-  padding: 60px 0 70px 0; */
+  padding: 60px 10px 70px 10px;
 }
-.introduction-page::after {
-  content: '';
+
+.media-video{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.overlay {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  animation: onlineSprite 3s steps(12) forwards;
-  /* animation-iteration-count: infinite; */
-  background-image: url('../assets/introduction-bg.jpg');
+  z-index: 20;
+  background: black;
+  opacity: 0.65;
+}
+
+.arrow-icon {
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  bottom: 60px;
+  left: calc((100% - 100px) / 2);
+  background-image: url(../assets/arrow.jpg);
   background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: top;
-}
-@keyframes onlineSprite {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 0 -100%;
-  }
+  background-size: 100%;
+  z-index: 19;
+  animation: arrow-ani .8s infinite linear;
 }
 
-.end-page__content {
-  font-size: 20px;
-  line-height: 20px;
+@keyframes arrow-ani {
+  0% {transform: translateY(0);}
+  25% {transform: translateY(-10px);}
+  50% {transform: translateY(0);}
+  75% {transform: translateY(10px);}
+  100% {transform: translateY(0);}
+}
+
+.introduction-page__title,
+.intro-text,
+.intro-text-en {
+  position: relative;
+  z-index: 100;
+}
+p {
+  margin: 0;
+}
+.title-text.title {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.title-text.desc {
+  font-size: 14px;
+  line-height: 14px;
+  margin-top: 4px;
+}
+
+.intro-text {
+  font-size: 10px;
+  line-height: 10px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 6px;
 }
 
+.intro-text-en {
+  margin-top: 20px;
+  font-size: 10px;
+  line-height: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
 </style>

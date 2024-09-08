@@ -1,6 +1,6 @@
 <template>
   <div class="media-page">
-    <video src="../assets/video.mp4" ref="videoPlayer" class="video-js" :id="playerId"></video>
+    <video src="../assets/video.mp4" ref="videoPlayer" class="video-js"></video>
       <div class="play-button" @click="handleplay" v-show="isPlay">
       </div>
       <div class="pause-button" @click="handlepause" v-show="!isPlay">
@@ -32,20 +32,20 @@ export default {
 
   },
   mounted() {
-    this.$refs.videoPlayer.addEventListener('play', this.handleplay());
-    this.$refs.videoPlayer.addEventListener('pause', this.handlepause());
+    // this.$refs.videoPlayer.addEventListener('play', this.handleplay());
+    // this.$refs.videoPlayer.addEventListener('pause', this.handlepause());
     // this.player = videojs(this.$refs.videoPlayer, this.options, () => {
     //   this.player.log('onPlayerReady', this);
     // });
   },
   methods: {
     handleplay() {
-      this.$refs.videoPlayer.play();
-      this.isPlay = false
+      // this.$refs.videoPlayer.play();
+      // this.isPlay = false
     },
     handlepause() {
-      this.$refs.videoPlayer.pause();
-      this.isPlay = true
+      // this.$refs.videoPlayer.pause();
+      // this.isPlay = true
     }
   }
 };
