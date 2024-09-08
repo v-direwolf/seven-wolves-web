@@ -1,5 +1,6 @@
 <template>
   <div class="media-page">
+    <div class="mask" @click="hancleClickPage"></div>
     <video
       src="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/video.mp4"
       poster="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/poster.jpg"
@@ -14,7 +15,7 @@
     </video>
     <div class="play-button" @click="handleplay" v-show="isPlay">
     </div>
-    <div class="pause-button" @click="handlepause" v-show="!isPlay">
+    <div class="pause-button" @click="handlepause" v-show="visiblePauseBtn">
       <div></div>
       <div></div>
     </div>
@@ -23,8 +24,6 @@
 </template>
 
 <script>
-// import videojs from "video.js";
-
 export default {
   props: {
     isActiveMedia: {
@@ -35,16 +34,9 @@ export default {
   data() {
    return {
     isPlay: true,
-    player: null,
+    visiblePauseBtn: false,
    }
 
-  },
-  mounted() {
-    // this.$refs.videoPlayer.addEventListener('play', this.handleplay());
-    // this.$refs.videoPlayer.addEventListener('pause', this.handlepause());
-    // this.player = videojs(this.$refs.videoPlayer, this.options, () => {
-    //   this.player.log('onPlayerReady', this);
-    // });
   },
   watch: {
     isActiveMedia(newValue) {
@@ -56,11 +48,21 @@ export default {
   methods: {
     handleplay() {
       this.$refs.videoPlayer.play();
-      this.isPlay = false
+      this.isPlay = false,
+      this.visiblePauseBtn = true;
+      setTimeout(() => {
+        this.visiblePauseBtn = false;
+      }, 2000);
     },
     handlepause() {
       this.$refs.videoPlayer.pause();
-      this.isPlay = true
+      this.isPlay = true;
+      this.visiblePauseBtn = false;
+    },
+    hancleClickPage() {
+      if (!this.play) {
+        this.handlepause();
+      }
     }
   }
 };
@@ -76,7 +78,13 @@ export default {
   justify-content: space-around;
   box-sizing: border-box;
   position: relative;
-  background: red;
+}
+.mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 video {
   width: 100%;
