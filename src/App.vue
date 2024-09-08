@@ -59,12 +59,15 @@ export default {
       }
     };
     const handleIsWechat = () => {
-      const ua = navigator.userAgent.toLowerCase();
-      if (ua.match(/micromessenger/i) == 'micromessenger') {
+
+      const userAgent = navigator.userAgent.toLowerCase();
+      // 判断是否是 iOS 系统且是微信浏览器
+      if (userAgent.indexOf('iphone')!== -1 && userAgent.indexOf('micromessenger')!== -1) {
         isWechat.value = true;
       }
     }
     handleIsWechat();
+
     return {
       isPlay,
       isActiveMedia,
