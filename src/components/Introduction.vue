@@ -40,9 +40,7 @@
     </div>
     <div class="arrow-icon"></div>
 
-    <!-- x5-video-player-type="h5" x-webkit-airplay="true" webkit-playsinline="true" playsinline="" poster="" preload="none" autoplay="" loop="" -->
     <video
-
       class="media-video"
       id="video-id"
       ref="mediaRef"

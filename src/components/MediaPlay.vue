@@ -16,8 +16,6 @@
     <div class="play-button" @click="handleplay" v-show="isPlay">
     </div>
     <div class="pause-button" @click="handlepause" v-show="visiblePauseBtn">
-      <div></div>
-      <div></div>
     </div>
 
   </div>
@@ -98,48 +96,21 @@ video {
   height: 80px;
   top: calc((100% - 80px) / 2);
   left: calc((100% - 80px) / 2);
-  border: 4px solid #fff;
-  border-radius: 100%;
-  box-sizing: border-box;
   cursor: pointer;
+  background-image: url('../assets/play.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
-.play-button::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 15px 0 15px 25px;
-  border-color: transparent transparent transparent white;
-}
+
 .pause-button {
   position: absolute;
   width: 80px;
   height: 80px;
   top: calc((100% - 80px) / 2);
   left: calc((100% - 80px) / 2);
-  border: 4px solid #fff;
-  border-radius: 100%;
-  box-sizing: border-box;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  opacity: 0;
-  transition:  all 0.4s;
-}
-
-.media-page:hover .pause-button {
-  opacity: 0.85;
-}
-.pause-button div  {
-  width: 4px;
-  height: 40px;
-  background: #fff;
-  border-radius: 4px;
+  background-image: url('../assets/pause.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 </style>
