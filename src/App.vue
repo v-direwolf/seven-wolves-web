@@ -11,7 +11,7 @@
     <swiper-slide><Start /></swiper-slide>
     <swiper-slide><MediaPlay :isActiveMedia="isActiveMedia"/></swiper-slide>
     <swiper-slide>
-      <!-- <Introduction :isPlay="isPlay" v-if="!isWechat"/> -->
+      <Introduction :isPlay="isPlay" v-if="!isWechat"/>
       <IntroductionWechat :isPlay="isPlay" v-if="isWechat"/>
     </swiper-slide>
     <swiper-slide><End /></swiper-slide>

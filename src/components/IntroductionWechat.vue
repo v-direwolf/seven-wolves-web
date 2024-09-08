@@ -83,15 +83,6 @@ export default {
   padding: 60px 10px 70px 10px;
 }
 
-.introduction-page__inner {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  align-items: center;
-  justify-content: center;
-}
-
 .media-video{
   position: absolute;
   width: 100%;
@@ -102,65 +93,8 @@ export default {
   z-index: 1;
 }
 
-.arrow-icon {
-  width: 100px;
-  height: 30px;
-  background-image: url('https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/arrow.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  animation: arrow-ani .8s infinite linear;
-}
-
-@keyframes arrow-ani {
-  0% {transform: translateY(0);}
-  25% {transform: translateY(-10px);}
-  50% {transform: translateY(0);}
-  75% {transform: translateY(10px);}
-  100% {transform: translateY(0);}
-}
-
-.introduction-page__inner,
-.arrow-icon {
-  position: relative;
-  z-index: 30;
-}
-
 p {
   margin: 0;
-}
-
-.title-text.title {
-  font-size: 24px;
-  line-height: 24px;
-  font-weight: 700;
-}
-
-.title-text.desc {
-  font-size: 14px;
-  line-height: 14px;
-  margin-top: 4px;
-}
-
-.intro-text {
-  font-size: 10px;
-  line-height: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.intro-text-en {
-  margin-top: 20px;
-  font-size: 10px;
-  line-height: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.play-btn {
-  position: absolute;
-  opacity: 0;
 }
 
 </style>

@@ -48,19 +48,6 @@ export default {
 </script>
 
 <style scoped>
-.introduction-page {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  color: #BCAC90;
-  box-sizing: border-box;
-  padding: 60px 10px 70px 10px;
-}
-
 .introduction-page__inner {
   height: 100%;
   display: flex;
@@ -68,16 +55,6 @@ export default {
   gap: 60px;
   align-items: center;
   justify-content: center;
-}
-
-.media-video{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  top: 0;
-  left: 0;
-  z-index: 1;
 }
 
 .arrow-icon {
@@ -135,10 +112,4 @@ p {
   flex-direction: column;
   gap: 6px;
 }
-
-.play-btn {
-  position: absolute;
-  opacity: 0;
-}
-
 </style>
