@@ -1,5 +1,5 @@
 <template>
-  <div class="start-page">
+  <div class="start-page" @click="goToHome">
     <div class="start-page__content">
       <img src="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/black-logo.png" class="black-logo"/>
       <div>
@@ -26,10 +26,14 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'StartPage',
-}
+<script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const goToHome = () => {
+    router.push('/main');
+};
 </script>
 
 <style scoped>
@@ -40,6 +44,7 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
+  cursor: pointer;
 }
 
 .location-icon {
