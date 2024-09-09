@@ -1,5 +1,5 @@
 <template>
-  <div class="start-page" @click="goToHome">
+  <div class="start-page">
     <div class="start-page__content">
       <img src="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/black-logo.png" class="black-logo"/>
       <div>
@@ -23,6 +23,7 @@
     </div>
     <div class="location-icon"></div>
     <div class="start-footer-icon"></div>
+    <div class="link" @click="goToHome"></div>
   </div>
 </template>
 
@@ -44,7 +45,6 @@ const goToHome = () => {
   width: 100%;
   height: 100%;
   position: relative;
-  cursor: pointer;
 }
 
 .location-icon {
@@ -56,6 +56,15 @@ const goToHome = () => {
   bottom: 56px;
   left: calc((100% - 38px) / 2);
   animation: location-ani 1.5s infinite linear;
+}
+
+.link {
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 45%;
+  bottom: 0;
+  left: 0;
 }
 
 @keyframes location-ani {
