@@ -2,8 +2,8 @@
   <div class="media-page">
     <div class="mask" @click="hancleClickPage"></div>
     <video
-      src="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/video.mp4"
-      poster="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/poster.jpg"
+      src="../assets/video.mp4"
+      poster="../assets/poster.jpg"
       ref="videoPlayer"
       class="video-js"
       x5-video-player-fullscreen="false"

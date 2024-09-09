@@ -1,7 +1,7 @@
 <template>
   <div class="start-page">
     <div class="start-page__content">
-      <img src="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/black-logo.png" class="black-logo"/>
+      <img src="../assets/black-logo.png" class="black-logo"/>
       <div>
         <div class="start-page_title">
           <span>新商旅</span>
@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
 .start-page {
-  background-image: url('https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/start-bg.png');
+  background-image: url('../assets/start-bg.png');
   background-size: 100% 100vh;
   background-repeat: no-repeat;
   width: 100%;

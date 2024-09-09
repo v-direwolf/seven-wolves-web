@@ -6,7 +6,7 @@
       class="media-video"
       id="video-id"
       ref="mediaRef"
-      src="https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/video-bg.mp4">
+      src="../assets/video-bg.mp4">
     </video>
   </div>
 </template>

@@ -60,7 +60,7 @@ export default {
 .arrow-icon {
   width: 100px;
   height: 30px;
-  background-image: url('https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/arrow.jpg');
+  background-image: url('../assets/arrow.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   animation: arrow-ani .8s infinite linear;
