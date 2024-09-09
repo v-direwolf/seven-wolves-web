@@ -1,8 +1,11 @@
 <template>
   <div class="introduction-page__inner">
     <div class="introduction-page__title">
-      <p class="title-text title">【新商旅 行世界】</p>
-      <p class="title-text desc">【New Business Travel  Explore The World】</p>
+      <p class="title-text title">
+        <span>【新商旅</span>
+        <span>行世界】</span>
+      </p>
+      <p class="title-text desc">【Beyond Boundaries Explore the world】</p>
     </div>
     <div>
       <div class="intro-text">
@@ -58,7 +61,7 @@ export default {
 }
 
 .arrow-icon {
-  width: 100px;
+  width: 60px;
   height: 30px;
   background-image: url('https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/arrow.jpg');
   background-repeat: no-repeat;
@@ -88,6 +91,14 @@ p {
   font-size: 24px;
   line-height: 24px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+}
+
+.title-text.title span {
+  display: block;
 }
 
 .title-text.desc {
