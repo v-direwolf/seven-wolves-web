@@ -48,7 +48,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  color: #BCAC90;
+  color: #d3ae6d;
   box-sizing: border-box;
   padding: 60px 10px 70px 10px;
 }

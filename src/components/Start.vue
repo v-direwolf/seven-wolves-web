@@ -21,6 +21,8 @@
         <div class="start-page_time">19:30</div>
       </div>
     </div>
+    <div class="location-icon"></div>
+    <div class="start-footer-icon"></div>
   </div>
 </template>
 
@@ -37,6 +39,38 @@ export default {
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+  position: relative;
+}
+
+.location-icon {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  background-image: url('https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/location.png');
+  background-size: 100%;
+  bottom: 56px;
+  left: calc((100% - 38px) / 2);
+  animation: location-ani 1.5s infinite linear;
+}
+
+@keyframes location-ani {
+  0% {transform: translateY(0);}
+  25% {transform: translateY(-10px);}
+  50% {transform: translateY(0);}
+  75% {transform: translateY(-10px);}
+  100% {transform: translateY(0);}
+}
+
+
+.start-footer-icon {
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-image: url('https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/station-info-icon.jpg');
+  background-size: 100%;
+  bottom: 20px;
+  left: calc((100% - 100px) / 2);
 }
 
 .start-page__content {
