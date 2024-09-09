@@ -46,7 +46,7 @@ export default {
   position: absolute;
   width: 38px;
   height: 38px;
-  background-image: url('../assets/location.png');
+  background-image: url('https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/location.png');
   background-size: 100%;
   bottom: 56px;
   left: calc((100% - 38px) / 2);
@@ -67,7 +67,7 @@ export default {
   width: 100px;
   height: 40px;
   background-repeat: no-repeat;
-  background-image: url('../assets/station-info-icon.jpg');
+  background-image: url('https://v-direwolf-1259483082.cos.ap-shanghai.myqcloud.com/station-info-icon.jpg');
   background-size: 100%;
   bottom: 20px;
   left: calc((100% - 100px) / 2);
